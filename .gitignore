@@ -1,8 +1,0 @@
-.gitignore
-
-ReprintLabels
-Row*
-arp_out.txt
-failed_units.txt
-input_file.txt
-mac_pass.txt
