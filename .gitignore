@@ -1,3 +1,5 @@
+.gitignore
+
 ReprintLabels
 Row*
 arp_out.txt
