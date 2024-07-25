@@ -1,0 +1,44 @@
+SMC INTERNAL ONLY -- DO NOT SHARE /.ssh/id_rsa
+OK to share /.ssh/id_rsa.pub
+
+Testing plans and log gathering for Morteza to cover for Mark while on flight
+Thank you for assisting me Morteza!
+
+Was able to get Morteza's public key to ssh into the jump server onsite
+to login:
+    ssh -i C:\Users\mortezas/.ssh/id_rsa test@79.135.120.161
+
+From ssh on the jump server, you are able to attach to any raritan PDU
+    PDU IPs: 192.64.198.1-192.64.198.144 (mapped out in the PDU_IPs Excel spreadsheet)
+    PDU Login: admin/raritan
+
+    to ssh:
+        ssh admin@<PDU_IP>
+        password: raritan
+
+    https://help.raritan.com/pdu-g4/4.2.0/#/index/10/11
+    Use this link to learn about the Raritan PDUs 
+
+    PDU Logs looking to gather:
+        `show eventlog class sensor`
+        `show eventlog class pdu`
+
+For PDU GUI from your Browser:
+Utilize a SOCKS proxy:
+    From a Command Prompt Window:
+        ssh -i C:\Users\mortezas/.ssh/id_rsa -D 8080 -N test@79.135.120.161
+
+        This will tunnel your connection to the Jump Server through port 8080 to localhost
+        Head into your Browser, and locate your SOCKS Proxy settings:
+            Manual Proxy Settings > SOCKS Host > localhost | Port: 8080
+        
+    You can then head to any PDU_IP via that browser and login with admin/raritan
+
+    From here you can pull and download the PDU graphs in .csv format, which will be needed
+    Harmonic Distortion
+    Voltage
+    Wattage
+    Phase Angle
+    Current Amperage
+    etc..
+    
